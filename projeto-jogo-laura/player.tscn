@@ -1,20 +1,90 @@
 [gd_scene format=3 uid="uid://b0bmlmpxmrw30"]
 
 [ext_resource type="Script" uid="uid://idvvtmngwvcd" path="res://character_body_2d.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://xqqu2aylunbe" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p3_jump.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://cyhlhpmt8a6n3" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_stand.png" id="2_bwjto"]
+[ext_resource type="Texture2D" uid="uid://3uu7yiquxc1p" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_jump.png" id="3_606se"]
+[ext_resource type="Texture2D" uid="uid://dc6l4xhcvghlj" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk01.png" id="4_u1c27"]
+[ext_resource type="Texture2D" uid="uid://c5a7guiak0vsj" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk02.png" id="5_op7ga"]
+[ext_resource type="Texture2D" uid="uid://b0ms8h4lt6dsd" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk03.png" id="6_q13i1"]
+[ext_resource type="Texture2D" uid="uid://iw005fpynw5k" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk04.png" id="7_pylmc"]
+[ext_resource type="Texture2D" uid="uid://dqt7r6jtgk2eu" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk05.png" id="8_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://cx2hw4b4obf7k" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk06.png" id="9_5tmop"]
+[ext_resource type="Texture2D" uid="uid://ctqwesaip185a" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk07.png" id="10_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://b8yeo6stlkooc" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk08.png" id="11_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://duawnsun8bn3w" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk09.png" id="12_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://cj1gw10500kad" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk10.png" id="13_jm5j8"]
+[ext_resource type="Texture2D" uid="uid://bsf8i53voya3k" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk11.png" id="14_7hik5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
 radius = 32.0
 height = 92.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_qtqh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bwjto")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_606se")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_op7ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q13i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7ahtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dx0e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jm5j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7hik5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1205291012]
 script = ExtResource("1_4flbx")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=41148519]
-texture = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1604089668]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2011535520]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=669085536]
+sprite_frames = SubResource("SpriteFrames_qtqh7")
+animation = &"idle"
