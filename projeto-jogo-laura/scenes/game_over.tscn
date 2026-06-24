@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bwvm7enkm5fxi"]
+
+[ext_resource type="Script" uid="uid://1q81mu0gytu0" path="res://game_over.gd" id="1_xeevv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqhvx"]
+font_size = 51
+
+[node name="GameOver" type="Control" unique_id=2061441254]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xeevv")
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=407263407]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 235.0
+offset_right = 716.0
+offset_bottom = 305.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_wqhvx")
+
+[node name="TentarNovamenteButton" type="Button" parent="." unique_id=1896229021]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 342.0
+offset_right = 671.0
+offset_bottom = 380.0
+text = "Tentar novamente"

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bfyyd8b3s6ien"]
+
+[ext_resource type="Script" uid="uid://up8skod8vfkb" path="res://menu_inicial.gd" id="1_1lqws"]
+[ext_resource type="Texture2D" uid="uid://dy7rmtfx2difu" path="res://assets/kenney_platformer-art-deluxe/Base pack/Tiles/snowCenter.png" id="2_eg8ak"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nn1uv"]
+font_size = 51
+
+[node name="MenuInicial" type="Control" unique_id=920938553]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1lqws")
+
+[node name="GameBackground" type="TextureRect" parent="." unique_id=1660038024]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eg8ak")
+
+[node name="TituloJogoLabel" type="Label" parent="." unique_id=534602467]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 211.0
+offset_right = 787.0
+offset_bottom = 281.0
+text = "JOGO TOP OK"
+label_settings = SubResource("LabelSettings_nn1uv")
+horizontal_alignment = 1
+
+[node name="JogarButton" type="Button" parent="." unique_id=1688161661]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 300.0
+offset_right = 621.0
+offset_bottom = 342.0
+text = "Jogar"
+
+[connection signal="pressed" from="JogarButton" to="." method="_on_jogar_button_pressed"]
