@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c8rkqi8b2lk2o"]
+
+[ext_resource type="Texture2D" uid="uid://rfjapvhs3skv" path="res://assets/kenney_platformer-art-deluxe/Base pack/Enemies/slimeWalk1.png" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://d2n6o42dqy5oo" path="res://scenes/enemy.gd" id="1_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://colq4h7ooamtp" path="res://assets/kenney_platformer-art-deluxe/Base pack/Enemies/slimeWalk2.png" id="2_qi2p4"]
+[ext_resource type="PackedScene" uid="uid://b4kgnok7pwvsh" path="res://scenes/killzone.tscn" id="4_5uy6h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r4msk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4gyqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qi2p4")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2rsi"]
+size = Vector2(50, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4msk"]
+size = Vector2(54, 31)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=501497041]
+script = ExtResource("1_4ra3w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=890209627]
+sprite_frames = SubResource("SpriteFrames_r4msk")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1180396953]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_a2rsi")
+
+[node name="FloorRight" type="RayCast2D" parent="." unique_id=578038107]
+target_position = Vector2(24, 16)
+
+[node name="FloorLeft" type="RayCast2D" parent="." unique_id=1702860940]
+target_position = Vector2(-25, 16)
+
+[node name="killzone" parent="." unique_id=1002407262 instance=ExtResource("4_5uy6h")]
+position = Vector2(-23, 36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=152724917]
+position = Vector2(23, -35.5)
+shape = SubResource("RectangleShape2D_r4msk")

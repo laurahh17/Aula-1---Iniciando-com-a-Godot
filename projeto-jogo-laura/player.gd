@@ -40,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	
 func die():
 	tomar_dano(1)
+	get_tree().reload_current_scene()
 # função que recebe a quantidade de dano via parâmetro e aplica à vidas
 
 func tomar_dano(dano:int) -> void:

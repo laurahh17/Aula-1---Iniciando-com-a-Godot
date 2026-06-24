@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://dwyysqenmand8" path="res://scenes/hud.gd" id="7_b121j"]
 [ext_resource type="Script" uid="uid://bpghqccm1mxe0" path="res://scenes/game_manager.gd" id="7_klq6b"]
 [ext_resource type="PackedScene" uid="uid://bh82n7512ubgm" path="res://scenes/pause_menu.tscn" id="9_8c41q"]
+[ext_resource type="PackedScene" uid="uid://c8rkqi8b2lk2o" path="res://scenes/enemy.tscn" id="10_olg7q"]
+[ext_resource type="PackedScene" uid="uid://b4kgnok7pwvsh" path="res://scenes/killzone.tscn" id="11_t1rx8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mx8sn"]
 texture = ExtResource("3_w8frs")
@@ -2913,6 +2915,9 @@ sources/4 = SubResource("TileSetAtlasSource_ppgk2")
 sources/5 = SubResource("TileSetAtlasSource_klq6b")
 sources/6 = SubResource("TileSetAtlasSource_b121j")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4msk"]
+size = Vector2(420, 121)
+
 [node name="Node2D" type="Node2D" unique_id=1157879340]
 
 [node name="CharacterBody2D" parent="." unique_id=1205291012 instance=ExtResource("1_w7c3h")]
@@ -2931,3 +2936,13 @@ script = ExtResource("7_klq6b")
 [node name="PosicaoInicial" type="Marker2D" parent="." unique_id=1943966908]
 
 [node name="PauseMenu" parent="." unique_id=682625108 instance=ExtResource("9_8c41q")]
+
+[node name="Enemy" parent="." unique_id=501497041 instance=ExtResource("10_olg7q")]
+position = Vector2(2099, 335)
+
+[node name="killzone" parent="." unique_id=1002407262 instance=ExtResource("11_t1rx8")]
+position = Vector2(3980, 616)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1760182785]
+position = Vector2(11, 184)
+shape = SubResource("RectangleShape2D_r4msk")
